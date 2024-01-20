@@ -40,6 +40,6 @@ class Reader:
             else:
                 # filter out empty lines
                 if line != '':
-                    data.append(self.ser.readline().decode().strip())
+                    data.append(line)
                 
         return data
