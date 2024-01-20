@@ -36,7 +36,7 @@ class Reader:
             if line.startswith('/'):
                 started = True
                 
-            elif line.startswith('!'):
+            elif started and line.startswith('!'):
                 ended = True
             else:
                 # filter out empty lines
