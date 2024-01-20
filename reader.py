@@ -30,11 +30,12 @@ class Reader:
         ended = False
         data = []
         
-        while not started and not ended:
+        while not started or not ended:
             line = self.ser.readline().decode().strip()
             
             if line.startswith('/'):
                 started = True
+                
             elif line.startswith('!'):
                 ended = True
             else:
