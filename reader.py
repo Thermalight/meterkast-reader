@@ -38,7 +38,7 @@ class Reader:
                 
             elif started and line.startswith('!'):
                 ended = True
-            else:
+            elif started:
                 # filter out empty lines
                 if line != '':
                     data.append(line)
