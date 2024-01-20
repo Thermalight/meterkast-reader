@@ -23,3 +23,21 @@ class Reader:
         self.port = port
         self.baudrate = baudrate
         self.ser = serial.Serial(port, baudrate)
+
+    # read a full datastream from the serial port
+    def read(self):
+        started = False
+        ended = False
+        data = []
+        
+        while not started:
+            if self.ser.readline().decode().startswith('/'):
+                started = True
+                
+        while not ended:
+            if self.ser.readline().decode().startswith('!'):
+                ended = True
+            else:
+                data.append(self.ser.readline().decode())
+                
+        return data
